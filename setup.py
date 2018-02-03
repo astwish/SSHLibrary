@@ -19,7 +19,10 @@ except ImportError:
 from os.path import abspath, dirname, join
 
 CURDIR = dirname(abspath(__file__))
-execfile(join(CURDIR, 'src', 'SSHLibrary', 'version.py'))
+# execfile(join(CURDIR, 'src', 'SSHLibrary', 'version.py'))
+# support for python3.x
+with open(join(CURDIR, 'src', 'SSHLibrary', 'version.py'), 'r') as version:
+	exec(version.read())
 with open(join(CURDIR, 'README.rst')) as readme:
     README = readme.read()
 CLASSIFIERS = """
